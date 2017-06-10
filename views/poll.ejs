@@ -1,0 +1,31 @@
+<% include header %>
+
+	<div class="container">
+		<div class="col-12">
+			<form action="<%= '/'+username+'/'+poll._id %>" method="post">
+			    <div class="form-group">
+			        <label>Question:</label>
+			        <h3><%= poll.question %></h3>
+			    </div>
+			    <div class="form-group">
+			        <label>Options:</label>
+			        <% poll.optionsInPoll.forEach(function(option){ %>
+			        	<div class="radio">
+				        	<input type="radio" name="option" value="<%= option._id %>">
+				        		<%= option.option %>
+				        	</input>
+			        	</div>
+			        <% }); %>
+			        <% if (user) { %>
+				        <label>Add Option:</label>
+				        <input type="text" name="newoption" />
+			        <% } %>
+			    </div>
+			    <div class="form-group">
+			        <input class="btn btn-primary" type="submit" value="Vote"/>
+			    </div>
+			</form>
+		</div>
+	</div>
+
+<% include footer %>

@@ -1,0 +1,23 @@
+<% include header %>
+
+<div class="container">
+	<div class="col-12">
+		<div class="center">
+			<br>
+			<table class="table table-bordered">
+				<thead class="thead-default">
+					<th>Poll</th>
+				</thead>
+				<tbody>
+					<% polls.forEach(function(poll){ %>
+						<tr>
+							<td><h4><a href="<%= username + '/' + poll._id %>"> <%= poll.question %> </a></h4></td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<% include footer %>
